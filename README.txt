@@ -1,75 +1,76 @@
-0. color_tex.tex ÊÇ±»×ÅÉ«µÄtex¹«Ê½ÁÐ±í, ÓÃÓÚÔÚlinux¶ËÉú³É¹«Ê½Í¼Ïñ
-1. color-list.txt ÊÇ¸ù¾ÝHÍ¨µÀ»®·ÖÑÕÉ«Ö®ºó¶ÔÓ¦µÄrbgÍ¨µÀÊýÖµ
-2. generate_formula.m ÊÇÉú³Éµ¥¸ö¹«Ê½µÄº¯Êý
-3. get_formulas.m ÊÇÉú³Écolor_tex.texÎÄ¼þµÄº¯Êý, °´ÐÐ´æ·Å×Å×ÅÉ«µÄ¹«Ê½
-4. hsvread.m ½«tex2imÉú³ÉµÄÍ¼Ïñ×ªÎªhsv¸ñÊ½µÄº¯Êý
-5. parsing_by_config.m Éú³ÉparsingµÄÍ¼Ïñ, ÎÄ¼þÃû´ú±í×Å·ûºÅ
-6. regular_teximages.m ½«linuxÉú³ÉµÄÍ¼Ïñ¶¼¹éÒ»»¯µ½Í¬Ò»¸ö·Ö±æÂÊ -> ÖØÃüÃûregular_imageformat.m
-7. set_symbol_color.m ¸ø¹«Ê½×ÅÉ«
-8. sort_used_set.m Ñ¡È¡·ûºÅ¼¯
-9. get_color_label_list.m Éú³Écolor-list.txt ºÍ label-list.txt
-10. get_caffe_data.m Éú³É»Ò¶ÈÍ¼Ïñ, ÒÔ¼°label
-11. expand_samples.m ¶ÔÉú³ÉµÄÍ¼ÏñÓë±êÇ©½øÐÐÅòÕÍ
-12. distort_formulas.m ¶Ô²ÊÉ«¹«Ê½Í¼Ïñ½øÐÐÈÅ¶¯
-13. expand_labels.m ¶Ôlabel½øÐÐÅòÕÍ, ÓÃÓÚmulti-taskµÄÒ»¸ölabel-channel
-14. extract_origin_boundingbox.m ¶ÔÔ­Í¼µÄ·ûºÅ½øÐÐbounding_boxµÄÌáÈ¡, Éú³ÉËÄ¸öµãµÄ×ø±êÒÔ¼°labelÖµ
+0. color_tex.tex æ˜¯è¢«ç€è‰²çš„texå…¬å¼åˆ—è¡¨, ç”¨äºŽåœ¨linuxç«¯ç”Ÿæˆå…¬å¼å›¾åƒ
+1. color-list.txt æ˜¯æ ¹æ®Hé€šé“åˆ’åˆ†é¢œè‰²ä¹‹åŽå¯¹åº”çš„rbgé€šé“æ•°å€¼
+2. generate_formula.m æ˜¯ç”Ÿæˆå•ä¸ªå…¬å¼çš„å‡½æ•°
+3. get_formulas.m æ˜¯ç”Ÿæˆcolor_tex.texæ–‡ä»¶çš„å‡½æ•°, æŒ‰è¡Œå­˜æ”¾ç€ç€è‰²çš„å…¬å¼
+4. hsvread.m å°†tex2imç”Ÿæˆçš„å›¾åƒè½¬ä¸ºhsvæ ¼å¼çš„å‡½æ•°
+5. parsing_by_config.m ç”Ÿæˆparsingçš„å›¾åƒ, æ–‡ä»¶åä»£è¡¨ç€ç¬¦å·
+6. regular_teximages.m å°†linuxç”Ÿæˆçš„å›¾åƒéƒ½å½’ä¸€åŒ–åˆ°åŒä¸€ä¸ªåˆ†è¾¨çŽ‡ -> é‡å‘½åregular_imageformat.m
+7. set_symbol_color.m ç»™å…¬å¼ç€è‰²
+8. sort_used_set.m é€‰å–ç¬¦å·é›†
+9. get_color_label_list.m ç”Ÿæˆcolor-list.txt å’Œ label-list.txt
+10. get_caffe_data.m ç”Ÿæˆç°åº¦å›¾åƒ, ä»¥åŠlabel
+11. expand_samples.m å¯¹ç”Ÿæˆçš„å›¾åƒä¸Žæ ‡ç­¾è¿›è¡Œè†¨èƒ€
+12. distort_formulas.m å¯¹å½©è‰²å…¬å¼å›¾åƒè¿›è¡Œæ‰°åŠ¨
+13. expand_labels.m å¯¹labelè¿›è¡Œè†¨èƒ€, ç”¨äºŽmulti-taskçš„ä¸€ä¸ªlabel-channel
+14. extract_origin_boundingbox.m å¯¹åŽŸå›¾çš„ç¬¦å·è¿›è¡Œbounding_boxçš„æå–, ç”Ÿæˆå››ä¸ªç‚¹çš„åæ ‡ä»¥åŠlabelå€¼
 15. 
 
-# Ê¹ÓÃÁ÷³Ì
-. ÔËÐÐget_color_label_list Éú³Écolor-list.txt ºÍ label-list.txt
-. ÔÚlabel-list.txt ÖÐÌîÈëËùÓÐ·ûºÅµÄlist, È»ºóÔÚoperater-list.txt ÖÐÌîÈëÔËËã·ûµÄlist
-. ÔËÐÐget_formulas µÃµ½color_tex.tex
-. ÔÚlinux¶ËÉú³É²ÊÉ«µÄ¹«Ê½Í¼Ïñ
-. ÔËÐÐregular_imageformat, Í³Ò»Í¼ÏñµÄ¸ñÊ½ #ÔËÐÐregular_teximages ¹éÒ»»¯·Ö±æÂÊ
-. ÔËÐÐextract_origin_boundingbox, ÌáÈ¡bounding-box
+# ä½¿ç”¨æµç¨‹
+. è¿è¡Œget_color_label_list ç”Ÿæˆcolor-list.txt å’Œ label-list.txt
+. åœ¨label-list.txt ä¸­å¡«å…¥æ‰€æœ‰ç¬¦å·çš„list, ç„¶åŽåœ¨operater-list.txt ä¸­å¡«å…¥è¿ç®—ç¬¦çš„list
+. è¿è¡Œget_formulas å¾—åˆ°color_tex.tex
+. åœ¨linuxç«¯ç”Ÿæˆå½©è‰²çš„å…¬å¼å›¾åƒ
+. è¿è¡Œregular_imageformat, ç»Ÿä¸€å›¾åƒçš„æ ¼å¼ #è¿è¡Œregular_teximages å½’ä¸€åŒ–åˆ†è¾¨çŽ‡
+. è¿è¡Œextract_origin_boundingbox, æå–bounding-box
 
 + parsing:
-. ÔËÐÐdistort_formulas, ¶Ô²ÊÉ«Í¼Ïñ½øÐÐÈÅ¶¯
-. ÔËÐÐparsing_by_config Éú³ÉlabelÍ¼Ïñ
-. ÔËÐÐget_caffe_data Éú³É»Ò¶ÈÍ¼ºÍlabel, Ä¬ÈÏÉú³É¶þÖµÍ¼
-. ÔËÐÐexpand_labels Éú³ÉÅòÕÍµÄlabel, ÔËÐÐÇ°ÐèÒªÌáÇ°Éè¶¨uncare_labelµÄÖµ
-. Èç¹ûÐèÒª, ÔËÐÐexpand_samples Éú³ÉÅòÕÍºóµÄÑù±¾
+. è¿è¡Œdistort_formulas, å¯¹å½©è‰²å›¾åƒè¿›è¡Œæ‰°åŠ¨
+. è¿è¡Œparsing_by_config ç”Ÿæˆlabelå›¾åƒ
+. è¿è¡Œget_caffe_data ç”Ÿæˆç°åº¦å›¾å’Œlabel, é»˜è®¤ç”ŸæˆäºŒå€¼å›¾
+. è¿è¡Œexpand_labels ç”Ÿæˆè†¨èƒ€çš„label, è¿è¡Œå‰éœ€è¦æå‰è®¾å®šuncare_labelçš„å€¼
+. å¦‚æžœéœ€è¦, è¿è¡Œexpand_samples ç”Ÿæˆè†¨èƒ€åŽçš„æ ·æœ¬
  
-+ densebox: (prepare_densebox_data_from_image.m »áÒÀ´ÎÖ´ÐÐÏÂÃæµÄ½Å±¾)
-. ÔËÐÐadjust_boundingbox.m, µ÷ÕûÄ³Ð©Àà±ðµÄbounding-box
-. ÔËÐÐdistort_formulas, ¶Ô²ÊÉ«Í¼Ïñ½øÐÐÈÅ¶¯
-. ÔËÐÐparsing_by_config Éú³ÉlabelÍ¼Ïñ
-. ÔËÐÐget_caffe_data Éú³É»Ò¶ÈÍ¼ºÍlabel, Ä¬ÈÏÉú³É¶þÖµÍ¼
-. ÔËÐÐget_caffe_densebox_data.m, Éú³ÉÑµÁ·denseboxËùÐèÒªµÄÊý¾Ý
++ densebox: (prepare_densebox_data_from_image.m ä¼šä¾æ¬¡æ‰§è¡Œä¸‹é¢çš„è„šæœ¬)
+. è¿è¡Œadjust_boundingbox.m, è°ƒæ•´æŸäº›ç±»åˆ«çš„bounding-box
+. è¿è¡Œdistort_formulas, å¯¹å½©è‰²å›¾åƒè¿›è¡Œæ‰°åŠ¨
+. è¿è¡Œparsing_by_config ç”Ÿæˆlabelå›¾åƒ
+. è¿è¡Œget_caffe_data ç”Ÿæˆç°åº¦å›¾å’Œlabel, é»˜è®¤ç”ŸæˆäºŒå€¼å›¾
+. è¿è¡Œget_caffe_densebox_data.m, ç”Ÿæˆè®­ç»ƒdenseboxæ‰€éœ€è¦çš„æ•°æ®
  
-# ÉÏÃæµÄÁ÷³Ì»¹ÄÜ¼ò»¯, parsing_by_config.m ¿ÉÒÔÖ±½ÓÉú³É´ølabelÐÅÏ¢µÄÍ¼Ïñ
-# ÓÅ»¯ 2015 07 07 ÓÅ»¯ÁË¹«Ê½³¤¶ÈµÄ¿ØÖÆ²ßÂÔ, ²»ÖÁÓÚÉú³É¼«ÆäÈß³¤µÄ¹«Ê½
-# 2015 07 10 Ìí¼ÓÒ»²½À´Éú³ÉÅòÕÍµÄlabelÓëimage
-# 2015 07 14 ·á¸»·ûºÅ¼¯ºÏ, ÔÙÒ»´ÎÓÅ»¯¹«Ê½³¤¶ÈµÄ¼ÆËã
-# 2015 07 14 ÔÚget_caffe_data ÖÐÌí¼Ó»Ò¶ÈÍ¼½Ó¿Ú
-# 2015 07 15 ÐÞ¸´ÁËHÍ¨µÀË÷ÒýµÄÖØ´óbug, ´ÓHSV·´ÏòÉú³ÉRGBÊ±HÍ¨µÀ²»ÄÜÖµÎª1
-# 2015 07 19 Ôö¼ÓÁË·ÖÊ½µÄÑ¡Ïî
-# 2015 07 20 ÐÞ¸Äregular_teximages²»½øÐÐ¹éÒ»»¯²Ù×÷, ²¢½«Õâ²½²Ù×÷ÃüÃûÎªregular_imageformat
-# 2015 07 20 Ìí¼Ódistort_formulas.m ¶Ô²ÊÉ«Í¼Ïñ½øÐÐÈÅ¶¯
-# 2015 07 21 ÐÞ¸Äregular_imageformat, Éú³ÉºÚµ×Í¼Ïñ, ÏÈÅòÕÍºó¸¯Ê´ÈÃÑù±¾¸üÏñÕæÊµÊý¾Ý
-# 2015 07 22 ÐÞ¸Ädistort_formulas, ½øÐÐ¼ÓËÙ, ¼ÓËÙ·ù¶È20±¶×óÓÒ
-# 2015 07 22 ÐÞ¸Äget_caffe_data, »Ò¶ÈÍ¼µÄ±³¾°Éú³É·½°¸ÓÃÏÖ³ÉµÄ±³¾°Í¼
-# 2015 07 22 ÐÞ¸Äget_caffe_data, ÓÃ²ÊÉ«Í¼×ö±³¾°, ²¢ÇÒÒÔjpg¸ñÊ½´æ´¢, ÉîÉ«×Ö²Êµ×
-# 2015 07 24 Ìí¼Óexpand_labels Éú³ÉÅòÕÍµÄlabel
-# 2015 07 26 Íê³Éexpand_labels, ÒÔ¼°¼ÓËÙÓÅ»¯, ÔËÐÐÇ°ÐèÒªÌáÇ°Éè¶¨uncare_labelµÄÖµ
-# 2015 07 30 Íê³Éextract_origin_boundingbox
-# 2015 07 30 ÐÞ¸Äget_formula, Éú³ÉµÄtex_i.configÎÄ¼þ¾ÍÊÇÊýÖµ¾ØÕó label h_value
-# 2015 07 31 ÐÞ¸Ädistort_formulas, Éú³ÉÐÎ±äºóµÄbounding-box×ø±ê
-# 2015 07 31 ÐÞ¸Äget_caffe_data, Éú³Écenter-labelÊý¾Ý
-# 2015 07 31 ÐÞ¸Äparsing_by_config, ²»ÓÃÐ´ÕâÃ´†ªàÂÁË
-# 2015 08 09 ½«Àà±ðÔö¼Óµ½ÁË94Àà
-# 2015 09 09 ½«À¨ºÅÒÆ³öpair_set, ×óÓÒÀ¨ºÅµ±×öµ¥¶ÀµÄÒ»¸ö·ûºÅ´¦Àí, É¾³ýlong arrow, Àà±ðÊýÎª95Àà
-# 2015 09 09 ÐÞ¸Äextract_origin_boundingbox, ½«i j ³ýºÅÕâÑù´øµãÖÐµÄµã×öÌØÊâ´¦Àí
-# 2015 10 07 ÐÞ¸ÄÁËÔËÐÐextract_origin_boundingbox Õë¶Ôi j = >= <= ¡Â ¡Ö £¥ ... :×öÁËÌØÊâ´¦Àí, »ù±¾Ë¼Â·¶¼ÊÇ½üÁÚÆ¥ÅäË¼Â·
-# 2015 10 07 ÐÞ¸ÄÁËÀ¨ºÅµÄ×ÅÉ«·½·¨, ×óÓÒÀ¨ºÅµÄÑÕÉ«²»Í¬, ¸ùºÅ×÷ÎªÒ»¸öµ¥¶ÀµÄ¼¯ºÏ, µ«ÊÇÔÚÉú³É¹«Ê½´®µÄÊ±ºò¸úpair_set·ÅÔÚÒ»Æð
-# 2015 10 07 ÓÅ»¯ÁË¹«Ê½Éú³É²ßÂÔ, Êý×ÖÒ»¶¨¶¼ÓÐ¸ÅÂÊ³öÏÖ, ×ÖÄ¸È¡Ò»²¿·Ö³öÏÖ
-# 2015 10 08 ÐÞ¸ÄÁËget_caffe_data ×îÖÕµÄlabelmap, centerlabel ·Ö±ðÉú³ÉÁ½×é, ÆäÖÐÒ»×éÊÇ½µ·Ö±æÂÊµÄ
-# 2015 10 08 ÐÞ¸ÄÁË¹«Ê½Éú³ÉµÄÁ÷³Ì, ÐèÒªÔ¤ÏÈÐÞ¸ÄÁ½¸ötxtÎÄ¼þ: label-list.txt & operater-list.txt
-# 2015 10 10 ¼ÓËÙÁËregular_imageformat, ¶ÔÓÚlib×öforÑ­»·
-# 2015 10 12 ÐÞ¸ÄÁËdistort_formulas, Ôö¼ÓÁËglobal_scaleµÄ±äÁ¿ÓÃÀ´´¦ÀíÍ¼ÏñDPIÌ«´ó´øÀ´µÄÎÊÌâ, ËõÐ¡ÁËÇãÐ±µÄ·¶Î§
+# ä¸Šé¢çš„æµç¨‹è¿˜èƒ½ç®€åŒ–, parsing_by_config.m å¯ä»¥ç›´æŽ¥ç”Ÿæˆå¸¦labelä¿¡æ¯çš„å›¾åƒ
+# ä¼˜åŒ– 2015 07 07 ä¼˜åŒ–äº†å…¬å¼é•¿åº¦çš„æŽ§åˆ¶ç­–ç•¥, ä¸è‡³äºŽç”Ÿæˆæžå…¶å†—é•¿çš„å…¬å¼
+# 2015 07 10 æ·»åŠ ä¸€æ­¥æ¥ç”Ÿæˆè†¨èƒ€çš„labelä¸Žimage
+# 2015 07 14 ä¸°å¯Œç¬¦å·é›†åˆ, å†ä¸€æ¬¡ä¼˜åŒ–å…¬å¼é•¿åº¦çš„è®¡ç®—
+# 2015 07 14 åœ¨get_caffe_data ä¸­æ·»åŠ ç°åº¦å›¾æŽ¥å£
+# 2015 07 15 ä¿®å¤äº†Hé€šé“ç´¢å¼•çš„é‡å¤§bug, ä»ŽHSVåå‘ç”ŸæˆRGBæ—¶Hé€šé“ä¸èƒ½å€¼ä¸º1
+# 2015 07 19 å¢žåŠ äº†åˆ†å¼çš„é€‰é¡¹
+# 2015 07 20 ä¿®æ”¹regular_teximagesä¸è¿›è¡Œå½’ä¸€åŒ–æ“ä½œ, å¹¶å°†è¿™æ­¥æ“ä½œå‘½åä¸ºregular_imageformat
+# 2015 07 20 æ·»åŠ distort_formulas.m å¯¹å½©è‰²å›¾åƒè¿›è¡Œæ‰°åŠ¨
+# 2015 07 21 ä¿®æ”¹regular_imageformat, ç”Ÿæˆé»‘åº•å›¾åƒ, å…ˆè†¨èƒ€åŽè…èš€è®©æ ·æœ¬æ›´åƒçœŸå®žæ•°æ®
+# 2015 07 22 ä¿®æ”¹distort_formulas, è¿›è¡ŒåŠ é€Ÿ, åŠ é€Ÿå¹…åº¦20å€å·¦å³
+# 2015 07 22 ä¿®æ”¹get_caffe_data, ç°åº¦å›¾çš„èƒŒæ™¯ç”Ÿæˆæ–¹æ¡ˆç”¨çŽ°æˆçš„èƒŒæ™¯å›¾
+# 2015 07 22 ä¿®æ”¹get_caffe_data, ç”¨å½©è‰²å›¾åšèƒŒæ™¯, å¹¶ä¸”ä»¥jpgæ ¼å¼å­˜å‚¨, æ·±è‰²å­—å½©åº•
+# 2015 07 24 æ·»åŠ expand_labels ç”Ÿæˆè†¨èƒ€çš„label
+# 2015 07 26 å®Œæˆexpand_labels, ä»¥åŠåŠ é€Ÿä¼˜åŒ–, è¿è¡Œå‰éœ€è¦æå‰è®¾å®šuncare_labelçš„å€¼
+# 2015 07 30 å®Œæˆextract_origin_boundingbox
+# 2015 07 30 ä¿®æ”¹get_formula, ç”Ÿæˆçš„tex_i.configæ–‡ä»¶å°±æ˜¯æ•°å€¼çŸ©é˜µ label h_value
+# 2015 07 31 ä¿®æ”¹distort_formulas, ç”Ÿæˆå½¢å˜åŽçš„bounding-boxåæ ‡
+# 2015 07 31 ä¿®æ”¹get_caffe_data, ç”Ÿæˆcenter-labelæ•°æ®
+# 2015 07 31 ä¿®æ”¹parsing_by_config, ä¸ç”¨å†™è¿™ä¹ˆå•°å—¦äº†
+# 2015 08 09 å°†ç±»åˆ«å¢žåŠ åˆ°äº†94ç±»
+# 2015 09 09 å°†æ‹¬å·ç§»å‡ºpair_set, å·¦å³æ‹¬å·å½“åšå•ç‹¬çš„ä¸€ä¸ªç¬¦å·å¤„ç†, åˆ é™¤long arrow, ç±»åˆ«æ•°ä¸º95ç±»
+# 2015 09 09 ä¿®æ”¹extract_origin_boundingbox, å°†i j é™¤å·è¿™æ ·å¸¦ç‚¹ä¸­çš„ç‚¹åšç‰¹æ®Šå¤„ç†
+# 2015 10 07 ä¿®æ”¹äº†è¿è¡Œextract_origin_boundingbox é’ˆå¯¹i j = >= <= Ã· â‰ˆ ï¼… ... :åšäº†ç‰¹æ®Šå¤„ç†, åŸºæœ¬æ€è·¯éƒ½æ˜¯è¿‘é‚»åŒ¹é…æ€è·¯
+# 2015 10 07 ä¿®æ”¹äº†æ‹¬å·çš„ç€è‰²æ–¹æ³•, å·¦å³æ‹¬å·çš„é¢œè‰²ä¸åŒ, æ ¹å·ä½œä¸ºä¸€ä¸ªå•ç‹¬çš„é›†åˆ, ä½†æ˜¯åœ¨ç”Ÿæˆå…¬å¼ä¸²çš„æ—¶å€™è·Ÿpair_setæ”¾åœ¨ä¸€èµ·
+# 2015 10 07 ä¼˜åŒ–äº†å…¬å¼ç”Ÿæˆç­–ç•¥, æ•°å­—ä¸€å®šéƒ½æœ‰æ¦‚çŽ‡å‡ºçŽ°, å­—æ¯å–ä¸€éƒ¨åˆ†å‡ºçŽ°
+# 2015 10 08 ä¿®æ”¹äº†get_caffe_data æœ€ç»ˆçš„labelmap, centerlabel åˆ†åˆ«ç”Ÿæˆä¸¤ç»„, å…¶ä¸­ä¸€ç»„æ˜¯é™åˆ†è¾¨çŽ‡çš„
+# 2015 10 08 ä¿®æ”¹äº†å…¬å¼ç”Ÿæˆçš„æµç¨‹, éœ€è¦é¢„å…ˆä¿®æ”¹ä¸¤ä¸ªtxtæ–‡ä»¶: label-list.txt & operater-list.txt
+# 2015 10 10 åŠ é€Ÿäº†regular_imageformat, å¯¹äºŽlibåšforå¾ªçŽ¯
+# 2015 10 12 ä¿®æ”¹äº†distort_formulas, å¢žåŠ äº†global_scaleçš„å˜é‡ç”¨æ¥å¤„ç†å›¾åƒDPIå¤ªå¤§å¸¦æ¥çš„é—®é¢˜, ç¼©å°äº†å€¾æ–œçš„èŒƒå›´
 # 2015 10 15 add gray_contrast into get_caffe_data
 # 2015 10 15 add get_caffe_mulcls_densebox_data.m to generate multi-class gt 
 # 2015 10 26 refine the for loop
+# 2016 04 26 128 MS categories
 # 2016 04 26 refine the bounding box of sqrt symbol in 'extract_origin_boundingbox.m'
 
 
