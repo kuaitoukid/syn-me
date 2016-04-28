@@ -13,14 +13,14 @@
 12. distort_formulas.m 对彩色公式图像进行扰动
 13. expand_labels.m 对label进行膨胀, 用于multi-task的一个label-channel
 14. extract_origin_boundingbox.m 对原图的符号进行bounding_box的提取, 生成四个点的坐标以及label值
-15. 
+15. convert_im2uint8.m 将uint16图像转化成uint8图像
 
 # 使用流程
 . 运行get_color_label_list 生成color-list.txt 和 label-list.txt
 . 在label-list.txt 中填入所有符号的list, 然后在operater-list.txt 中填入运算符的list
 . 运行get_formulas 得到color_tex.tex
 . 在linux端生成彩色的公式图像
-. 运行regular_imageformat, 统一图像的格式 #运行regular_teximages 归一化分辨率
+. 运行convert_im2uint8和regular_imageformat, 统一图像的格式 #运行regular_teximages 归一化分辨率
 . 运行extract_origin_boundingbox, 提取bounding-box
 
 + parsing:
