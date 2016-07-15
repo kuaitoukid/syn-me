@@ -20,7 +20,7 @@
 . 在label-list.txt 中填入所有符号的list, 然后在operater-list.txt 中填入运算符的list
 . 运行get_formulas 得到color_tex.tex
 . 在linux端生成彩色的公式图像
-. 运行regular_imageformat, 统一图像的格式 #运行regular_teximages 归一化分辨率
+. 运行convert_im2uint8和regular_imageformat, 统一图像的格式 #运行regular_teximages 归一化分辨率
 . 运行extract_origin_boundingbox, 提取bounding-box
 
 + parsing:

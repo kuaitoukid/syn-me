@@ -114,3 +114,15 @@ Z 62
 \\rho 114
 \\sigma 115
 \\omega 116
+\\rightarrow 117
+\\leftarrow 118
+\\Leftarrow 119
+\\Rightarrow 120
+\\leftrightarrow 121
+\\Leftrightarrow 122
+\\leftharpoonup 123
+\\rightharpoonup 124
+\\leftharpoondown 125
+\\rightharpoondown 126
+\\leftrightharpoons 127
+\\rightleftharpoons 128
